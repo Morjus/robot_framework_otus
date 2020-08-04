@@ -3,20 +3,36 @@ Library    SeleniumLibrary
 
 Resource    ../Resources/Common.robot
 
-Documentation    Это пример теста написанного с помощью Robot Framework
+Documentation    Тесты для страницы администратора opencart
 
-Test Setup    Open Browser    NONE    ${BROWSER}
+Test Setup    Open Browser    NONE    ${BROWSER}    options=add_argument("--ignore-certificate-errors")
 Test Teardown    Close Browser
 
 
 *** Variables ***
-# C переменными уже можно работать через опцию -v
 ${BROWSER}    chrome
 
 
 *** Test Cases ***
 Check Login
-    Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}
-    ${TITLE}    Get Title
-    Should Contain      ${TITLE}    Dashboard
-    END
+    Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}    ${BUTTON_SELECTOR}    Dashboard
+
+Change product
+    Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}    ${BUTTON_SELECTOR}    Dashboard
+    Go to product page    Products
+    Change product
+
+Delete random product
+    Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}    ${BUTTON_SELECTOR}    Dashboard
+    Go to product page    Products
+    Delete product
+
+Add recurring profiles
+    Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}    ${BUTTON_SELECTOR}    Dashboard
+    Go to profiles    Recurring Profiles
+    Add new profile    ${NAME_SELECTOR}    ${NAME}
+
+Add information
+    Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}    ${BUTTON_SELECTOR}    Dashboard
+    Go to information    Information
+    Add new information    ${INFO_TITLE}    ${META}    ${DEFAULT_VAL}
