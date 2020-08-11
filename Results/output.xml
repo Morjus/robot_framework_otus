@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200726 18:07:14.316" rpa="false">
+<suite id="s1" name="Tests" source="C:\Users\morju\dev\otus\robot_framework_otus\Tests">
+<suite id="s1-s1" name="Admin" source="C:\Users\morju\dev\otus\robot_framework_otus\Tests\Admin.robot">
+<test id="s1-s1-t1" name="Check Login">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>NONE</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200726 18:07:14.818" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200726 18:07:14.818" endtime="20200726 18:07:18.141"></status>
+</kw>
+<kw name="Admin Page open and login" library="Common">
+<arguments>
+<arg>${PAGE}</arg>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>${PASSW_SELECTOR}</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${PAGE}/admin</arg>
+</arguments>
+<msg timestamp="20200726 18:07:18.144" level="INFO">Opening url 'http://localhost/admin'</msg>
+<status status="PASS" starttime="20200726 18:07:18.143" endtime="20200726 18:07:19.010"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>user</arg>
+</arguments>
+<msg timestamp="20200726 18:07:19.012" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200726 18:07:19.011" endtime="20200726 18:07:19.195"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>bitnami1</arg>
+</arguments>
+<msg timestamp="20200726 18:07:19.195" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200726 18:07:19.195" endtime="20200726 18:07:19.348"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>.btn.btn-primary</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200726 18:07:19.349" level="INFO">Sending key(s) ('ENTER',) to .btn.btn-primary element.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200726 18:07:20.485" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200726 18:07:19.369" endtime="20200726 18:07:20.486"></status>
+</kw>
+<msg timestamp="20200726 18:07:20.523" level="FAIL">Element with locator '.btn.btn-primary' not found.</msg>
+<status status="FAIL" starttime="20200726 18:07:19.348" endtime="20200726 18:07:20.524"></status>
+</kw>
+<status status="FAIL" starttime="20200726 18:07:18.142" endtime="20200726 18:07:20.524"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200726 18:07:20.525" endtime="20200726 18:07:23.727"></status>
+</kw>
+<status status="FAIL" starttime="20200726 18:07:14.816" endtime="20200726 18:07:23.728" critical="yes">Element with locator '.btn.btn-primary' not found.</status>
+</test>
+<doc>Это пример теста написанного с помощью Robot Framework</doc>
+<status status="FAIL" starttime="20200726 18:07:14.374" endtime="20200726 18:07:23.737"></status>
+</suite>
+<status status="FAIL" starttime="20200726 18:07:14.320" endtime="20200726 18:07:23.760"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="1" id="s1-s1" name="Admin">Tests.Admin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
