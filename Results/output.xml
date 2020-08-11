@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200726 18:07:14.316" rpa="false">
 <suite id="s1" name="Tests" source="C:\Users\morju\dev\otus\robot_framework_otus\Tests">
@@ -87,3 +88,954 @@
 <errors>
 </errors>
 </robot>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.4 on win32)" generated="20200804 14:35:14.041" rpa="false">
+<suite id="s1" name="Tests" source="C:\Users\ih\Documents\dev\otus\robot_framework_otus\Tests">
+<suite id="s1-s1" name="Admin" source="C:\Users\ih\Documents\dev\otus\robot_framework_otus\Tests\Admin.robot">
+<test id="s1-s1-t1" name="Check Login">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>NONE</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200804 14:35:14.277" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200804 14:35:14.277" endtime="20200804 14:35:17.604"></status>
+</kw>
+<kw name="Admin Page open and login" library="Common">
+<arguments>
+<arg>${PAGE}</arg>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>Dashboard</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${PAGE}/admin</arg>
+</arguments>
+<msg timestamp="20200804 14:35:17.606" level="INFO">Opening url 'http://localhost/admin'</msg>
+<status status="PASS" starttime="20200804 14:35:17.606" endtime="20200804 14:35:18.166"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>user</arg>
+</arguments>
+<msg timestamp="20200804 14:35:18.168" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200804 14:35:18.166" endtime="20200804 14:35:18.323"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>bitnami1</arg>
+</arguments>
+<msg timestamp="20200804 14:35:18.323" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200804 14:35:18.323" endtime="20200804 14:35:18.473"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200804 14:35:18.474" level="INFO">Sending key(s) ('ENTER',) to css=.btn.btn-primary element.</msg>
+<msg timestamp="20200804 14:35:19.910" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20200804 14:35:19.910" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20200804 14:35:18.474" endtime="20200804 14:35:19.935"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:19.948" level="INFO">${TITLE} = Dashboard</msg>
+<status status="PASS" starttime="20200804 14:35:19.938" endtime="20200804 14:35:19.948"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:19.948" endtime="20200804 14:35:19.948"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:19.937" endtime="20200804 14:35:19.948"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:19.935" endtime="20200804 14:35:19.948"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:17.605" endtime="20200804 14:35:19.949"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200804 14:35:19.949" endtime="20200804 14:35:23.098"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:14.276" endtime="20200804 14:35:23.099" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="Change product">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>NONE</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200804 14:35:23.102" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200804 14:35:23.102" endtime="20200804 14:35:26.423"></status>
+</kw>
+<kw name="Admin Page open and login" library="Common">
+<arguments>
+<arg>${PAGE}</arg>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>Dashboard</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${PAGE}/admin</arg>
+</arguments>
+<msg timestamp="20200804 14:35:26.424" level="INFO">Opening url 'http://localhost/admin'</msg>
+<status status="PASS" starttime="20200804 14:35:26.424" endtime="20200804 14:35:27.378"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>user</arg>
+</arguments>
+<msg timestamp="20200804 14:35:27.379" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200804 14:35:27.379" endtime="20200804 14:35:27.510"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>bitnami1</arg>
+</arguments>
+<msg timestamp="20200804 14:35:27.510" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200804 14:35:27.510" endtime="20200804 14:35:27.638"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200804 14:35:27.639" level="INFO">Sending key(s) ('ENTER',) to css=.btn.btn-primary element.</msg>
+<msg timestamp="20200804 14:35:28.839" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20200804 14:35:28.840" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20200804 14:35:27.638" endtime="20200804 14:35:28.852"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:28.859" level="INFO">${TITLE} = Dashboard</msg>
+<status status="PASS" starttime="20200804 14:35:28.853" endtime="20200804 14:35:28.859"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:28.859" endtime="20200804 14:35:28.860"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:28.853" endtime="20200804 14:35:28.860"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:28.853" endtime="20200804 14:35:28.860"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:26.424" endtime="20200804 14:35:28.860"></status>
+</kw>
+<kw name="Go to product page" library="Common">
+<arguments>
+<arg>Products</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#menu-catalog a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:28.861" level="INFO">Clicking element 'css=#menu-catalog a'.</msg>
+<status status="PASS" starttime="20200804 14:35:28.861" endtime="20200804 14:35:28.941"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//*[@id="collapse1"]/li[2]/a</arg>
+<arg>3 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:28.941" endtime="20200804 14:35:28.973"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="collapse1"]/li[2]/a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:28.974" level="INFO">Clicking link '//*[@id="collapse1"]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200804 14:35:28.974" endtime="20200804 14:35:29.249"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:29.259" level="INFO">${TITLE} = Products</msg>
+<status status="PASS" starttime="20200804 14:35:29.250" endtime="20200804 14:35:29.259"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:29.259" endtime="20200804 14:35:29.259"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:29.249" endtime="20200804 14:35:29.259"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:29.249" endtime="20200804 14:35:29.259"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:28.861" endtime="20200804 14:35:29.259"></status>
+</kw>
+<kw name="Change product" library="Common">
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>7 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:29.260" endtime="20200804 14:35:29.261"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="form-product"]/div/table/tbody/tr[5]/td[8]/a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:29.261" level="INFO">Clicking link '//*[@id="form-product"]/div/table/tbody/tr[5]/td[8]/a'.</msg>
+<status status="PASS" starttime="20200804 14:35:29.261" endtime="20200804 14:35:29.790"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>css=#content &gt; div.page-header &gt; div &gt; div &gt; button</arg>
+</arguments>
+<msg timestamp="20200804 14:35:29.791" level="INFO">Clicking button 'css=#content &gt; div.page-header &gt; div &gt; div &gt; button'.</msg>
+<status status="PASS" starttime="20200804 14:35:29.790" endtime="20200804 14:35:30.103"></status>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<arguments>
+<arg>//*[@id="content"]/div[2]/div[1]</arg>
+<arg>Success: You have modified products!</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:30.103" endtime="20200804 14:35:30.130"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:29.260" endtime="20200804 14:35:30.131"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200804 14:35:30.131" endtime="20200804 14:35:32.339"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:23.101" endtime="20200804 14:35:32.340" critical="yes"></status>
+</test>
+<test id="s1-s1-t3" name="Delete random product">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>NONE</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200804 14:35:32.342" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200804 14:35:32.342" endtime="20200804 14:35:35.603"></status>
+</kw>
+<kw name="Admin Page open and login" library="Common">
+<arguments>
+<arg>${PAGE}</arg>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>Dashboard</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${PAGE}/admin</arg>
+</arguments>
+<msg timestamp="20200804 14:35:35.604" level="INFO">Opening url 'http://localhost/admin'</msg>
+<status status="PASS" starttime="20200804 14:35:35.604" endtime="20200804 14:35:36.055"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>user</arg>
+</arguments>
+<msg timestamp="20200804 14:35:36.056" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200804 14:35:36.055" endtime="20200804 14:35:36.182"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>bitnami1</arg>
+</arguments>
+<msg timestamp="20200804 14:35:36.183" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200804 14:35:36.183" endtime="20200804 14:35:36.324"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200804 14:35:36.325" level="INFO">Sending key(s) ('ENTER',) to css=.btn.btn-primary element.</msg>
+<msg timestamp="20200804 14:35:37.608" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20200804 14:35:37.609" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20200804 14:35:36.324" endtime="20200804 14:35:37.621"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:37.629" level="INFO">${TITLE} = Dashboard</msg>
+<status status="PASS" starttime="20200804 14:35:37.623" endtime="20200804 14:35:37.629"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:37.629" endtime="20200804 14:35:37.630"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:37.622" endtime="20200804 14:35:37.630"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:37.622" endtime="20200804 14:35:37.630"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:35.603" endtime="20200804 14:35:37.630"></status>
+</kw>
+<kw name="Go to product page" library="Common">
+<arguments>
+<arg>Products</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#menu-catalog a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:37.631" level="INFO">Clicking element 'css=#menu-catalog a'.</msg>
+<status status="PASS" starttime="20200804 14:35:37.631" endtime="20200804 14:35:37.717"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//*[@id="collapse1"]/li[2]/a</arg>
+<arg>3 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:37.717" endtime="20200804 14:35:37.761"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="collapse1"]/li[2]/a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:37.761" level="INFO">Clicking link '//*[@id="collapse1"]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200804 14:35:37.761" endtime="20200804 14:35:38.146"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:38.162" level="INFO">${TITLE} = Products</msg>
+<status status="PASS" starttime="20200804 14:35:38.148" endtime="20200804 14:35:38.162"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:38.163" endtime="20200804 14:35:38.163"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:38.147" endtime="20200804 14:35:38.163"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:38.147" endtime="20200804 14:35:38.163"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:37.631" endtime="20200804 14:35:38.163"></status>
+</kw>
+<kw name="Delete product" library="Common">
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>7 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:38.164" endtime="20200804 14:35:38.165"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="form-product"]/div/table/tbody/tr[16]/td[1]/input</arg>
+</arguments>
+<msg timestamp="20200804 14:35:38.166" level="INFO">Selecting checkbox '//*[@id="form-product"]/div/table/tbody/tr[16]/td[1]/input'.</msg>
+<status status="PASS" starttime="20200804 14:35:38.165" endtime="20200804 14:35:38.251"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="content"]/div[1]/div/div/button[3]</arg>
+</arguments>
+<msg timestamp="20200804 14:35:38.252" level="INFO">Clicking button '//*[@id="content"]/div[1]/div/div/button[3]'.</msg>
+<status status="PASS" starttime="20200804 14:35:38.251" endtime="20200804 14:35:38.336"></status>
+</kw>
+<kw name="Handle Alert" library="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<arguments>
+<arg>ACCEPT</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:38.337" endtime="20200804 14:35:38.343"></status>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<arguments>
+<arg>css=.alert.alert-success.alert-dismissible</arg>
+<arg>Success: You have modified products!</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:38.343" endtime="20200804 14:35:38.636"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:38.164" endtime="20200804 14:35:38.637"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200804 14:35:38.637" endtime="20200804 14:35:40.872"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:32.341" endtime="20200804 14:35:40.872" critical="yes"></status>
+</test>
+<test id="s1-s1-t4" name="Add recurring profiles">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>NONE</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200804 14:35:40.875" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200804 14:35:40.875" endtime="20200804 14:35:44.167"></status>
+</kw>
+<kw name="Admin Page open and login" library="Common">
+<arguments>
+<arg>${PAGE}</arg>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>Dashboard</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${PAGE}/admin</arg>
+</arguments>
+<msg timestamp="20200804 14:35:44.169" level="INFO">Opening url 'http://localhost/admin'</msg>
+<status status="PASS" starttime="20200804 14:35:44.168" endtime="20200804 14:35:45.091"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>user</arg>
+</arguments>
+<msg timestamp="20200804 14:35:45.092" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200804 14:35:45.092" endtime="20200804 14:35:45.224"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>bitnami1</arg>
+</arguments>
+<msg timestamp="20200804 14:35:45.225" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200804 14:35:45.225" endtime="20200804 14:35:45.359"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200804 14:35:45.360" level="INFO">Sending key(s) ('ENTER',) to css=.btn.btn-primary element.</msg>
+<msg timestamp="20200804 14:35:46.648" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20200804 14:35:46.648" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20200804 14:35:45.359" endtime="20200804 14:35:46.671"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:46.685" level="INFO">${TITLE} = Dashboard</msg>
+<status status="PASS" starttime="20200804 14:35:46.672" endtime="20200804 14:35:46.685"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:46.685" endtime="20200804 14:35:46.686"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:46.672" endtime="20200804 14:35:46.686"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:46.671" endtime="20200804 14:35:46.686"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:44.168" endtime="20200804 14:35:46.686"></status>
+</kw>
+<kw name="Go to profiles" library="Common">
+<arguments>
+<arg>Recurring Profiles</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#menu-catalog a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:46.688" level="INFO">Clicking element 'css=#menu-catalog a'.</msg>
+<status status="PASS" starttime="20200804 14:35:46.687" endtime="20200804 14:35:46.765"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>7 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:46.765" endtime="20200804 14:35:46.766"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="collapse1"]/li[3]/a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:46.767" level="INFO">Clicking link '//*[@id="collapse1"]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200804 14:35:46.766" endtime="20200804 14:35:47.039"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:47.049" level="INFO">${TITLE} = Recurring Profiles</msg>
+<status status="PASS" starttime="20200804 14:35:47.042" endtime="20200804 14:35:47.049"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:47.050" endtime="20200804 14:35:47.050"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:47.041" endtime="20200804 14:35:47.050"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:47.040" endtime="20200804 14:35:47.050"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:46.687" endtime="20200804 14:35:47.050"></status>
+</kw>
+<kw name="Add new profile" library="Common">
+<arguments>
+<arg>${NAME_SELECTOR}</arg>
+<arg>${NAME}</arg>
+</arguments>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>7 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:47.054" endtime="20200804 14:35:47.056"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="content"]/div[1]/div/div/a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:47.056" level="INFO">Clicking link '//*[@id="content"]/div[1]/div/div/a'.</msg>
+<status status="PASS" starttime="20200804 14:35:47.056" endtime="20200804 14:35:47.237"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${NAME_SELECTOR}</arg>
+<arg>${NAME}</arg>
+</arguments>
+<msg timestamp="20200804 14:35:47.238" level="INFO">Typing text 'John Doe' into text field 'css=#form-recurring div.form-group.required div div input'.</msg>
+<status status="PASS" starttime="20200804 14:35:47.237" endtime="20200804 14:35:47.376"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="content"]/div[1]/div/div/button</arg>
+</arguments>
+<msg timestamp="20200804 14:35:47.376" level="INFO">Clicking button '//*[@id="content"]/div[1]/div/div/button'.</msg>
+<status status="PASS" starttime="20200804 14:35:47.376" endtime="20200804 14:35:47.697"></status>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<arguments>
+<arg>css=#content div.container-fluid div.alert.alert-success.alert-dismissible</arg>
+<arg>Success: You have modified recurring profiles!</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:47.697" endtime="20200804 14:35:47.730"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:47.052" endtime="20200804 14:35:47.730"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200804 14:35:47.731" endtime="20200804 14:35:49.932"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:40.874" endtime="20200804 14:35:49.932" critical="yes"></status>
+</test>
+<test id="s1-s1-t5" name="Add information">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>NONE</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200804 14:35:49.936" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200804 14:35:49.935" endtime="20200804 14:35:53.162"></status>
+</kw>
+<kw name="Admin Page open and login" library="Common">
+<arguments>
+<arg>${PAGE}</arg>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>Dashboard</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${PAGE}/admin</arg>
+</arguments>
+<msg timestamp="20200804 14:35:53.164" level="INFO">Opening url 'http://localhost/admin'</msg>
+<status status="PASS" starttime="20200804 14:35:53.163" endtime="20200804 14:35:53.658"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_SELECTOR}</arg>
+<arg>user</arg>
+</arguments>
+<msg timestamp="20200804 14:35:53.659" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200804 14:35:53.659" endtime="20200804 14:35:53.787"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSW_SELECTOR}</arg>
+<arg>bitnami1</arg>
+</arguments>
+<msg timestamp="20200804 14:35:53.787" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200804 14:35:53.787" endtime="20200804 14:35:53.919"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${BUTTON_SELECTOR}</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200804 14:35:53.920" level="INFO">Sending key(s) ('ENTER',) to css=.btn.btn-primary element.</msg>
+<msg timestamp="20200804 14:35:55.160" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20200804 14:35:55.160" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20200804 14:35:53.919" endtime="20200804 14:35:55.189"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:55.196" level="INFO">${TITLE} = Dashboard</msg>
+<status status="PASS" starttime="20200804 14:35:55.190" endtime="20200804 14:35:55.196"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:55.196" endtime="20200804 14:35:55.197"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:55.190" endtime="20200804 14:35:55.197"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:55.189" endtime="20200804 14:35:55.197"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:53.162" endtime="20200804 14:35:55.198"></status>
+</kw>
+<kw name="Go to information" library="Common">
+<arguments>
+<arg>Information</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#menu-catalog a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:55.200" level="INFO">Clicking element 'css=#menu-catalog a'.</msg>
+<status status="PASS" starttime="20200804 14:35:55.199" endtime="20200804 14:35:55.302"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>7 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:55.302" endtime="20200804 14:35:55.304"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="collapse1"]/li[10]/a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:55.305" level="INFO">Clicking link '//*[@id="collapse1"]/li[10]/a'.</msg>
+<status status="PASS" starttime="20200804 14:35:55.304" endtime="20200804 14:35:55.763"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Verify Page Title Contains</arg>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Verify Page Title Contains" library="Common">
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${TITLE}</var>
+</assign>
+<msg timestamp="20200804 14:35:55.776" level="INFO">${TITLE} = Information</msg>
+<status status="PASS" starttime="20200804 14:35:55.764" endtime="20200804 14:35:55.776"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TITLE}</arg>
+<arg>${VALUE}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:55.776" endtime="20200804 14:35:55.776"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:55.763" endtime="20200804 14:35:55.776"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:55.763" endtime="20200804 14:35:55.776"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:55.199" endtime="20200804 14:35:55.776"></status>
+</kw>
+<kw name="Add new information" library="Common">
+<arguments>
+<arg>${INFO_TITLE}</arg>
+<arg>${META}</arg>
+<arg>${DEFAULT_VAL}</arg>
+</arguments>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>7 sec</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:55.777" endtime="20200804 14:35:55.778"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="content"]/div[1]/div/div/a</arg>
+</arguments>
+<msg timestamp="20200804 14:35:55.779" level="INFO">Clicking link '//*[@id="content"]/div[1]/div/div/a'.</msg>
+<status status="PASS" starttime="20200804 14:35:55.779" endtime="20200804 14:35:56.210"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${INFO_TITLE}</arg>
+<arg>${DEFAULT_VAL}</arg>
+</arguments>
+<msg timestamp="20200804 14:35:56.210" level="INFO">Typing text 'Information for new customers' into text field 'css=#input-title1'.</msg>
+<status status="PASS" starttime="20200804 14:35:56.210" endtime="20200804 14:35:56.490"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>document.querySelector("#input-description1"). innerHTML = "&lt;p&gt;${DEFAULT_VAL}&lt;/p&gt;";</arg>
+</arguments>
+<msg timestamp="20200804 14:35:56.491" level="INFO">Executing JavaScript:
+document.querySelector("#input-description1"). innerHTML = "&lt;p&gt;Information for new customers&lt;/p&gt;";
+Without any arguments.</msg>
+<status status="PASS" starttime="20200804 14:35:56.490" endtime="20200804 14:35:56.497"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>document.querySelector("#language1 div:nth-child(2) div div div.note-editing-area div.note-editable.panel-body p"). innerHTML = "${DEFAULT_VAL} ";</arg>
+</arguments>
+<msg timestamp="20200804 14:35:56.497" level="INFO">Executing JavaScript:
+document.querySelector("#language1 div:nth-child(2) div div div.note-editing-area div.note-editable.panel-body p"). innerHTML = "Information for new customers ";
+Without any arguments.</msg>
+<status status="PASS" starttime="20200804 14:35:56.497" endtime="20200804 14:35:56.502"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${META}</arg>
+<arg>${DEFAULT_VAL}</arg>
+</arguments>
+<msg timestamp="20200804 14:35:56.503" level="INFO">Typing text 'Information for new customers' into text field 'css=#input-meta-title1'.</msg>
+<status status="PASS" starttime="20200804 14:35:56.503" endtime="20200804 14:35:56.727"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="content"]/div[1]/div/div/button</arg>
+</arguments>
+<msg timestamp="20200804 14:35:56.727" level="INFO">Clicking button '//*[@id="content"]/div[1]/div/div/button'.</msg>
+<status status="PASS" starttime="20200804 14:35:56.727" endtime="20200804 14:35:57.033"></status>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<arguments>
+<arg>css=#content div.container-fluid div.alert.alert-success.alert-dismissible</arg>
+<arg>Success: You have modified information!</arg>
+</arguments>
+<status status="PASS" starttime="20200804 14:35:57.033" endtime="20200804 14:35:57.067"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:55.777" endtime="20200804 14:35:57.068"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200804 14:35:57.069" endtime="20200804 14:36:00.844"></status>
+</kw>
+<status status="PASS" starttime="20200804 14:35:49.935" endtime="20200804 14:36:00.845" critical="yes"></status>
+</test>
+<doc>Тесты для страницы администратора opencart</doc>
+<status status="PASS" starttime="20200804 14:35:14.071" endtime="20200804 14:36:00.847"></status>
+</suite>
+<status status="PASS" starttime="20200804 14:35:14.043" endtime="20200804 14:36:00.852"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0">Critical Tests</stat>
+<stat pass="5" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" id="s1-s1" name="Admin">Tests.Admin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
+>>>>>>> d2057ada4d91bdc9e1a8a69d838f0fb658c53e15
