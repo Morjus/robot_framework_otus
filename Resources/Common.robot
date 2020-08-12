@@ -32,23 +32,23 @@ Verify Page Title Contains
     ${TITLE}    Get Title
     Should Contain      ${TITLE}    ${VALUE}
 
-Go to product page
+Go to page
     [Arguments]    ${REQUEST}
     Click Element    css=#menu-catalog a
     Wait Until Element Is Enabled    //*[@id="collapse1"]/li[2]/a    3 sec
-    Click Link    //*[@id="collapse1"]/li[2]/a
+    Click Link    xpath=//*[@id="collapse1"]/li[2]/a    #bad selector, should fix
     Wait Until Keyword Succeeds    3 sec    1 sec    Verify Page Title Contains    ${REQUEST}
 
 Change product
     Set Browser Implicit Wait    7 sec
-    Click Link    //*[@id="form-product"]/div/table/tbody/tr[5]/td[8]/a
-    Click Button    css=#content > div.page-header > div > div > button
-    Wait Until Element Contains    //*[@id="content"]/div[2]/div[1]    Success: You have modified products!
+    Click Link    xpath//*[@id="form-product"]/div/table/tbody/tr[5]/td[8]/a    #bad selector, should fix
+    Click Button    css=#content > div.page-header > div > div > button    #bad selector, should fix
+    Wait Until Element Contains    xpath=//*[@id="content"]/div[2]/div[1]    Success: You have modified products!    #bad selector, should fix
 
 Delete product
     Set Browser Implicit Wait    7 sec
-    Select Checkbox    //*[@id="form-product"]/div/table/tbody/tr[16]/td[1]/input
-    Click Button    //*[@id="content"]/div[1]/div/div/button[3]
+    Select Checkbox    xpath=//*[@id="form-product"]/div/table/tbody/tr[16]/td[1]/input    #bad selector, should fix
+    Click Button    xpath=//*[@id="content"]/div[1]/div/div/button[3]    #bad selector, should fix
     Handle Alert    ACCEPT
     Wait Until Element Contains    css=.alert.alert-success.alert-dismissible    Success: You have modified products!
 

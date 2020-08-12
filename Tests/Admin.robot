@@ -19,12 +19,12 @@ Check Login
 
 Change product
     Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}    ${BUTTON_SELECTOR}    Dashboard
-    Go to product page    Products
+    Go to page    Products
     Change product
 
 Delete random product
     Admin Page open and login    ${PAGE}    ${LOGIN_SELECTOR}     ${PASSW_SELECTOR}    ${BUTTON_SELECTOR}    Dashboard
-    Go to product page    Products
+    Go to page    Products
     Delete product
 
 Add recurring profiles
