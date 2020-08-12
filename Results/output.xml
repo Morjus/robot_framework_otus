@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200812 11:37:20.033" rpa="false">
+<suite id="s1" name="Login &amp; DB testing">
+<suite id="s1-s1" name="Login" source="C:\Users\morju\dev\otus\robot_framework_otus\Tests\Login.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>browser=chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200812 11:37:20.275" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200812 11:37:20.275" endtime="20200812 11:37:23.370"></status>
+</kw>
+<test id="s1-s1-t1" name="Login to admin page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${BASE_URL}/admin/</arg>
+</arguments>
+<msg timestamp="20200812 11:37:23.372" level="INFO">Opening url 'http://localhost/admin/'</msg>
+<status status="PASS" starttime="20200812 11:37:23.371" endtime="20200812 11:37:23.876"></status>
+</kw>
+<kw name="Login With" library="AdminPage">
+<arguments>
+<arg>${OPENCART_ADMIN}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${LOGIN_FORM}</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:23.877" endtime="20200812 11:37:23.909"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${user_data}[0]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:23.909" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200812 11:37:23.909" endtime="20200812 11:37:24.018"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${user_data}[1]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:24.019" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200812 11:37:24.019" endtime="20200812 11:37:24.130"></status>
+</kw>
+<kw name="Submit Form" library="SeleniumLibrary">
+<doc>Submits a form identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_FORM}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:24.130" level="INFO">Submitting form 'css=form'.</msg>
+<status status="PASS" starttime="20200812 11:37:24.130" endtime="20200812 11:37:24.934"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//h1[contains(text(), 'Dashboard')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:24.934" endtime="20200812 11:37:24.961"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:23.877" endtime="20200812 11:37:24.962"></status>
+</kw>
+<doc>Check for admin can login</doc>
+<tags>
+<tag>Login</tag>
+</tags>
+<status status="PASS" starttime="20200812 11:37:23.370" endtime="20200812 11:37:24.962" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="Customer can login to account">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${BASE_URL}/</arg>
+</arguments>
+<msg timestamp="20200812 11:37:24.966" level="INFO">Opening url 'http://localhost/'</msg>
+<status status="PASS" starttime="20200812 11:37:24.965" endtime="20200812 11:37:25.361"></status>
+</kw>
+<kw name="Open Login Page" library="CustomerPage">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${ACCOUNT_LINK}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:25.362" level="INFO">Clicking link 'xpath=//a[@title="My Account"]'.</msg>
+<status status="PASS" starttime="20200812 11:37:25.361" endtime="20200812 11:37:25.682"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_LINK}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:25.682" level="INFO">Clicking link 'xpath=//a[contains(text(), 'Login')]'.</msg>
+<status status="PASS" starttime="20200812 11:37:25.682" endtime="20200812 11:37:26.103"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//h2[contains(text(), 'Returning Customer')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:26.103" endtime="20200812 11:37:26.118"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:25.361" endtime="20200812 11:37:26.119"></status>
+</kw>
+<kw name="Login User With" library="CustomerPage">
+<arguments>
+<arg>${OPENCART_USER}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${user_data}[0]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:26.120" level="INFO">Typing text 'bitnami@bitnami.com' into text field 'css=#input-email'.</msg>
+<status status="PASS" starttime="20200812 11:37:26.120" endtime="20200812 11:37:26.294"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${user_data}[1]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:26.295" level="INFO">Typing text 'bitnami' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200812 11:37:26.294" endtime="20200812 11:37:26.405"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:26.406" level="INFO">Clicking element 'css=input[type='submit']'.</msg>
+<status status="PASS" starttime="20200812 11:37:26.406" endtime="20200812 11:37:26.664"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//h2[contains(text(), 'My Orders')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:26.664" endtime="20200812 11:37:26.678"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:26.119" endtime="20200812 11:37:26.678"></status>
+</kw>
+<doc>Check for user can login</doc>
+<tags>
+<tag>Login</tag>
+</tags>
+<status status="PASS" starttime="20200812 11:37:24.964" endtime="20200812 11:37:26.678" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200812 11:37:26.680" endtime="20200812 11:37:28.801"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:20.063" endtime="20200812 11:37:28.801"></status>
+</suite>
+<suite id="s1-s2" name="DB testing" source="C:\Users\morju\dev\otus\robot_framework_otus\Tests\DB_testing.robot">
+<kw name="Connect To Database" library="DatabaseLibrary" type="setup">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<arguments>
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:28.871" level="INFO">Connecting using : pymysql.connect(db=bitnami_opencart, user=bn_opencart, passwd=, host=127.0.0.1, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20200812 11:37:28.834" endtime="20200812 11:37:28.885"></status>
+</kw>
+<test id="s1-s2-t1" name="Change Random Product from Catalog With Db Validation">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>browser=chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200812 11:37:28.887" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20200812 11:37:28.886" endtime="20200812 11:37:31.993"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://${BASE_URL}/admin/</arg>
+</arguments>
+<msg timestamp="20200812 11:37:31.994" level="INFO">Opening url 'http://localhost/admin/'</msg>
+<status status="PASS" starttime="20200812 11:37:31.994" endtime="20200812 11:37:32.397"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200812 11:37:32.397" endtime="20200812 11:37:34.533"></status>
+</kw>
+<kw name="Login With" library="AdminPage">
+<arguments>
+<arg>${OPENCART_ADMIN}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${LOGIN_FORM}</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:34.535" endtime="20200812 11:37:34.564"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${user_data}[0]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:34.565" level="INFO">Typing text 'user' into text field 'css=#input-username'.</msg>
+<status status="PASS" starttime="20200812 11:37:34.564" endtime="20200812 11:37:34.673"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${user_data}[1]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:34.674" level="INFO">Typing text 'bitnami1' into text field 'css=#input-password'.</msg>
+<status status="PASS" starttime="20200812 11:37:34.673" endtime="20200812 11:37:34.787"></status>
+</kw>
+<kw name="Submit Form" library="SeleniumLibrary">
+<doc>Submits a form identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_FORM}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:34.787" level="INFO">Submitting form 'css=form'.</msg>
+<status status="PASS" starttime="20200812 11:37:34.787" endtime="20200812 11:37:35.696"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//h1[contains(text(), 'Dashboard')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:35.696" endtime="20200812 11:37:35.713"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:34.534" endtime="20200812 11:37:35.713"></status>
+</kw>
+<kw name="Open Catalog Products" library="AdminPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MENU_CATALOG}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:35.715" level="INFO">Clicking element 'css=#menu-catalog'.</msg>
+<status status="PASS" starttime="20200812 11:37:35.714" endtime="20200812 11:37:35.796"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${CATALOG_ITEMS}</arg>
+</arguments>
+<assign>
+<var>${catalog_items}</var>
+</assign>
+<msg timestamp="20200812 11:37:35.810" level="INFO">${catalog_items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="facf9cea1bcc9021f5952ee872b10d4d", element="050e8d60-f765-48f2-8d57-90585f02be5c")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20200812 11:37:35.796" endtime="20200812 11:37:35.810"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Click Element</arg>
+<arg>${catalog_items}[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${catalog_items}[1]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:35.811" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="facf9cea1bcc9021f5952ee872b10d4d", element="c4b4f148-db9f-480d-8ad3-8460854b43dc")&gt;'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200812 11:37:36.239" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200812 11:37:35.835" endtime="20200812 11:37:36.239"></status>
+</kw>
+<msg timestamp="20200812 11:37:36.245" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=84.0.4147.105)
+</msg>
+<status status="FAIL" starttime="20200812 11:37:35.810" endtime="20200812 11:37:36.245"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${catalog_items}[1]</arg>
+</arguments>
+<msg timestamp="20200812 11:37:37.245" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="facf9cea1bcc9021f5952ee872b10d4d", element="c4b4f148-db9f-480d-8ad3-8460854b43dc")&gt;'.</msg>
+<status status="PASS" starttime="20200812 11:37:37.245" endtime="20200812 11:37:37.476"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:35.810" endtime="20200812 11:37:37.476"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//h1[text()='Products']</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:37.477" endtime="20200812 11:37:37.493"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:35.714" endtime="20200812 11:37:37.493"></status>
+</kw>
+<kw name="Generate Random String" library="String">
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<arguments>
+<arg>10</arg>
+<arg>[LETTERS]</arg>
+</arguments>
+<assign>
+<var>${NEW_NAME_FOR_TEST}</var>
+</assign>
+<msg timestamp="20200812 11:37:37.494" level="INFO">${NEW_NAME_FOR_TEST} = SepfbtSTAK</msg>
+<status status="PASS" starttime="20200812 11:37:37.494" endtime="20200812 11:37:37.494"></status>
+</kw>
+<kw name="Check Product Not In Database" library="AdminPage">
+<arguments>
+<arg>${NEW_NAME_FOR_TEST}</arg>
+</arguments>
+<kw name="Check If Not Exists In Database" library="DatabaseLibrary">
+<doc>This is the negation of `check_if_exists_in_database`.</doc>
+<arguments>
+<arg>select name from bitnami_opencart.${PRODUCT_DESCRIPTION_DB} where name = '${product_name}'</arg>
+</arguments>
+<msg timestamp="20200812 11:37:37.495" level="INFO">Executing : Check If Not Exists In Database  |  select name from bitnami_opencart.oc_product_description where name = 'SepfbtSTAK' </msg>
+<msg timestamp="20200812 11:37:37.495" level="INFO">Executing : Query  |  select name from bitnami_opencart.oc_product_description where name = 'SepfbtSTAK' </msg>
+<status status="PASS" starttime="20200812 11:37:37.495" endtime="20200812 11:37:37.500"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:37.495" endtime="20200812 11:37:37.500"></status>
+</kw>
+<kw name="Check Product In Database" library="AdminPage">
+<arguments>
+<arg>${PRODUCT_FOR_TEST}</arg>
+</arguments>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select name from bitnami_opencart.${PRODUCT_DESCRIPTION_DB} where name = '${value}'</arg>
+</arguments>
+<msg timestamp="20200812 11:37:37.501" level="INFO">Executing : Check If Exists In Database  |  select name from bitnami_opencart.oc_product_description where name = 'Canon EOS 5D' </msg>
+<msg timestamp="20200812 11:37:37.501" level="INFO">Executing : Query  |  select name from bitnami_opencart.oc_product_description where name = 'Canon EOS 5D' </msg>
+<status status="PASS" starttime="20200812 11:37:37.501" endtime="20200812 11:37:37.504"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:37.501" endtime="20200812 11:37:37.504"></status>
+</kw>
+<kw name="Change Name Of This Product" library="AdminPage">
+<arguments>
+<arg>${PRODUCT_FOR_TEST}</arg>
+<arg>${NEW_NAME_FOR_TEST}</arg>
+</arguments>
+<kw name="Search This Product" library="AdminPage">
+<arguments>
+<arg>${old_name}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PRODUCT_NAME_FIELD}</arg>
+<arg>${product_name}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:37.505" level="INFO">Typing text 'Canon EOS 5D' into text field 'css=#input-name'.</msg>
+<status status="PASS" starttime="20200812 11:37:37.505" endtime="20200812 11:37:37.662"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${FILTER_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:37.662" level="INFO">Clicking element 'css=button#button-filter'.</msg>
+<status status="PASS" starttime="20200812 11:37:37.662" endtime="20200812 11:37:37.844"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//td[contains(text(), '${product_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:37.844" endtime="20200812 11:37:37.858"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:37.505" endtime="20200812 11:37:37.859"></status>
+</kw>
+<kw name="Edit First Product" library="AdminPage">
+<arguments>
+<arg>${old_name}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${CHANGE_PRODUCT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:37.860" level="INFO">Clicking link 'xpath=//a[@data-original-title='Edit']'.</msg>
+<status status="PASS" starttime="20200812 11:37:37.860" endtime="20200812 11:37:38.450"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//label[contains(text(), 'Product Name')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:38.450" endtime="20200812 11:37:38.464"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:37.859" endtime="20200812 11:37:38.464"></status>
+</kw>
+<kw name="Replace Name To This" library="AdminPage">
+<arguments>
+<arg>${new_name}</arg>
+</arguments>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<arguments>
+<arg>${PRODUCT_NAME_INPUT}</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:38.465" endtime="20200812 11:37:38.510"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PRODUCT_NAME_INPUT}</arg>
+<arg>${new_name}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:38.510" level="INFO">Typing text 'SepfbtSTAK' into text field 'css=#input-name1'.</msg>
+<status status="PASS" starttime="20200812 11:37:38.510" endtime="20200812 11:37:38.695"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:38.465" endtime="20200812 11:37:38.695"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${SAVE_PRODUCT}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:38.696" level="INFO">Clicking button 'xpath=//button[@data-original-title='Save']'.</msg>
+<status status="PASS" starttime="20200812 11:37:38.695" endtime="20200812 11:37:38.940"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:37.504" endtime="20200812 11:37:38.940"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Check Product In Database</arg>
+<arg>${NEW_NAME_FOR_TEST}</arg>
+</arguments>
+<kw name="Check Product In Database" library="AdminPage">
+<arguments>
+<arg>${NEW_NAME_FOR_TEST}</arg>
+</arguments>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select name from bitnami_opencart.${PRODUCT_DESCRIPTION_DB} where name = '${value}'</arg>
+</arguments>
+<msg timestamp="20200812 11:37:38.943" level="INFO">Executing : Check If Exists In Database  |  select name from bitnami_opencart.oc_product_description where name = 'SepfbtSTAK' </msg>
+<msg timestamp="20200812 11:37:38.943" level="INFO">Executing : Query  |  select name from bitnami_opencart.oc_product_description where name = 'SepfbtSTAK' </msg>
+<status status="PASS" starttime="20200812 11:37:38.942" endtime="20200812 11:37:38.948"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:38.942" endtime="20200812 11:37:38.949"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:38.941" endtime="20200812 11:37:38.949"></status>
+</kw>
+<kw name="Change Name Of This Product" library="AdminPage">
+<arguments>
+<arg>${NEW_NAME_FOR_TEST}</arg>
+<arg>${PRODUCT_FOR_TEST}</arg>
+</arguments>
+<kw name="Search This Product" library="AdminPage">
+<arguments>
+<arg>${old_name}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PRODUCT_NAME_FIELD}</arg>
+<arg>${product_name}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:38.951" level="INFO">Typing text 'SepfbtSTAK' into text field 'css=#input-name'.</msg>
+<status status="PASS" starttime="20200812 11:37:38.951" endtime="20200812 11:37:39.099"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${FILTER_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:39.099" level="INFO">Clicking element 'css=button#button-filter'.</msg>
+<status status="PASS" starttime="20200812 11:37:39.099" endtime="20200812 11:37:39.268"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//td[contains(text(), '${product_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:39.268" endtime="20200812 11:37:39.285"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:38.950" endtime="20200812 11:37:39.285"></status>
+</kw>
+<kw name="Edit First Product" library="AdminPage">
+<arguments>
+<arg>${old_name}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${CHANGE_PRODUCT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:39.286" level="INFO">Clicking link 'xpath=//a[@data-original-title='Edit']'.</msg>
+<status status="PASS" starttime="20200812 11:37:39.286" endtime="20200812 11:37:39.667"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//label[contains(text(), 'Product Name')]</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:39.668" endtime="20200812 11:37:39.683"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:39.285" endtime="20200812 11:37:39.683"></status>
+</kw>
+<kw name="Replace Name To This" library="AdminPage">
+<arguments>
+<arg>${new_name}</arg>
+</arguments>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<arguments>
+<arg>${PRODUCT_NAME_INPUT}</arg>
+</arguments>
+<status status="PASS" starttime="20200812 11:37:39.684" endtime="20200812 11:37:39.726"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PRODUCT_NAME_INPUT}</arg>
+<arg>${new_name}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:39.727" level="INFO">Typing text 'Canon EOS 5D' into text field 'css=#input-name1'.</msg>
+<status status="PASS" starttime="20200812 11:37:39.727" endtime="20200812 11:37:39.929"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:39.683" endtime="20200812 11:37:39.930"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${SAVE_PRODUCT}</arg>
+</arguments>
+<msg timestamp="20200812 11:37:39.930" level="INFO">Clicking button 'xpath=//button[@data-original-title='Save']'.</msg>
+<status status="PASS" starttime="20200812 11:37:39.930" endtime="20200812 11:37:40.169"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:38.949" endtime="20200812 11:37:40.169"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Check Product In Database</arg>
+<arg>${PRODUCT_FOR_TEST}</arg>
+</arguments>
+<kw name="Check Product In Database" library="AdminPage">
+<arguments>
+<arg>${PRODUCT_FOR_TEST}</arg>
+</arguments>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select name from bitnami_opencart.${PRODUCT_DESCRIPTION_DB} where name = '${value}'</arg>
+</arguments>
+<msg timestamp="20200812 11:37:40.171" level="INFO">Executing : Check If Exists In Database  |  select name from bitnami_opencart.oc_product_description where name = 'Canon EOS 5D' </msg>
+<msg timestamp="20200812 11:37:40.171" level="INFO">Executing : Query  |  select name from bitnami_opencart.oc_product_description where name = 'Canon EOS 5D' </msg>
+<status status="PASS" starttime="20200812 11:37:40.171" endtime="20200812 11:37:40.174"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:40.170" endtime="20200812 11:37:40.174"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:40.170" endtime="20200812 11:37:40.174"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200812 11:37:40.175" endtime="20200812 11:37:42.307"></status>
+</kw>
+<doc>Change product name in catalog with ui and validate changes in database. Also change name back.</doc>
+<tags>
+<tag>ChangeProduct</tag>
+<tag>DB</tag>
+</tags>
+<status status="PASS" starttime="20200812 11:37:28.885" endtime="20200812 11:37:42.308" critical="yes"></status>
+</test>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="teardown">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20200812 11:37:42.319" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20200812 11:37:42.319" endtime="20200812 11:37:42.319"></status>
+</kw>
+<status status="PASS" starttime="20200812 11:37:28.808" endtime="20200812 11:37:42.320"></status>
+</suite>
+<status status="PASS" starttime="20200812 11:37:20.034" endtime="20200812 11:37:42.325"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">ChangeProduct</stat>
+<stat pass="1" fail="0">DB</stat>
+<stat pass="2" fail="0">Login</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Login &amp; DB testing">Login &amp; DB testing</stat>
+<stat pass="2" fail="0" id="s1-s1" name="Login">Login &amp; DB testing.Login</stat>
+<stat pass="1" fail="0" id="s1-s2" name="DB testing">Login &amp; DB testing.DB testing</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
